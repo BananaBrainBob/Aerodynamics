@@ -672,6 +672,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1421279490, guid: 465660a744d5c4372bdb42b6dbdb3751, type: 3}
+      propertyPath: PlaneControls.m_Actions.Array.data[1].m_Name
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421279490, guid: 465660a744d5c4372bdb42b6dbdb3751, type: 3}
+      propertyPath: PlaneControls.m_Bindings.Array.data[0].m_Name
+      value: Axis
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421279490, guid: 465660a744d5c4372bdb42b6dbdb3751, type: 3}
+      propertyPath: PlaneControls.m_Bindings.Array.data[0].m_Action
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421279490, guid: 465660a744d5c4372bdb42b6dbdb3751, type: 3}
+      propertyPath: PlaneControls.m_Bindings.Array.data[1].m_Action
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421279490, guid: 465660a744d5c4372bdb42b6dbdb3751, type: 3}
+      propertyPath: PlaneControls.m_Bindings.Array.data[2].m_Action
+      value: Roll
+      objectReference: {fileID: 0}
     - target: {fileID: 7596388350855631091, guid: 465660a744d5c4372bdb42b6dbdb3751,
         type: 3}
       propertyPath: m_Name
@@ -690,7 +710,7 @@ PrefabInstance:
     - target: {fileID: 7596388350855631116, guid: 465660a744d5c4372bdb42b6dbdb3751,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.592112
+      value: 3.39
       objectReference: {fileID: 0}
     - target: {fileID: 7596388350855631116, guid: 465660a744d5c4372bdb42b6dbdb3751,
         type: 3}
