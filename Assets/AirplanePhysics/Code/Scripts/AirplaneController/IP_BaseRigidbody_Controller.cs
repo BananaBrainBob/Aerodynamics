@@ -9,15 +9,15 @@ namespace AirplaneController
     {
     #region Variables
 
-        private Rigidbody rb;
+        protected Rigidbody rb;
 
-        private AudioSource aSource;
+        protected AudioSource aSource;
 
     #endregion
 
     #region Builtin Methods
 
-        void Start()
+        protected virtual void Start()
         {
             rb = GetComponent<Rigidbody>();
             aSource = GetComponent<AudioSource>();
@@ -25,12 +25,13 @@ namespace AirplaneController
                 aSource.playOnAwake = false;
         }
 
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (!rb)
                 return;
 
             HandlePhysics();
+            
         }
 
     #endregion

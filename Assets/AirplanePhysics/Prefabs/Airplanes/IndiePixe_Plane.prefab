@@ -1,5 +1,82 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &206844978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206844979}
+  m_Layer: 0
+  m_Name: COG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206844979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206844978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.34, z: 0.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7596388350855631116}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306517127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306517128}
+  - component: {fileID: 306517129}
+  m_Layer: 0
+  m_Name: Engine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306517128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306517127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7596388350855631116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306517129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306517127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2225faaf32d824bc488870548ca2c20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxForce: 200
+  maxRPM: 2550
 --- !u!1 &413797484020130208
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5869126043823201685}
   - component: {fileID: 7041831603754309714}
+  - component: {fileID: 7596388352121458706}
   m_Layer: 0
   m_Name: R_Front_Wheel_COL
   m_TagString: Untagged
@@ -368,6 +446,18 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!114 &7596388352121458706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546102326232666261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96490389c653b4e08ab552118fa0633a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7596388350855631091
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +492,8 @@ Transform:
   m_Children:
   - {fileID: 7596388352215329687}
   - {fileID: 7596388351233308466}
+  - {fileID: 206844979}
+  - {fileID: 306517128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -577,7 +669,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: negative
       m_Id: 9bfc5c3d-4ea8-48fd-9870-1763ded904e2
-      m_Path: <Keyboard>/upArrow
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -585,7 +677,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: positive
       m_Id: 78efbfc7-e15d-4a46-bf3e-eac54823e271
-      m_Path: <Keyboard>/downArrow
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -723,6 +815,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbadf7b295364f90b2dec961b0c350a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 1421279490}
+  airplaneWeight: 800
+  COG: {fileID: 206844979}
+  engines:
+  - {fileID: 306517129}
+  wheels:
+  - {fileID: 7596388352121458707}
+  - {fileID: 7596388352121458706}
+  - {fileID: 7596388352121458704}
 --- !u!1 &7596388351233308465
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8712177095513966929}
   - component: {fileID: 4798636674696275130}
+  - component: {fileID: 7596388352121458704}
   m_Layer: 0
   m_Name: Back_Wheel_COL
   m_TagString: Untagged
@@ -855,6 +957,18 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!114 &7596388352121458704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850687413868922083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96490389c653b4e08ab552118fa0633a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8223825043001077495
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5070337737095666932}
   - component: {fileID: 8638982242681423749}
+  - component: {fileID: 7596388352121458707}
   m_Layer: 0
   m_Name: L_Front_Wheel_COL
   m_TagString: Untagged
@@ -917,6 +1032,18 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!114 &7596388352121458707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223825043001077495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96490389c653b4e08ab552118fa0633a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7596388351815979013
 PrefabInstance:
   m_ObjectHideFlags: 0

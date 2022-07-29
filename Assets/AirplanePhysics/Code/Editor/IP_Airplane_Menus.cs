@@ -1,14 +1,20 @@
-using UnityEngine;
+using AirplaneController;
+using UnityEditor;
+using UnityEngine; 
 
-public class IP_Airplane_Menus : MonoBehaviour
+public static class IP_Airplane_Menus
 {
-    // Start is called before the first frame update
-    void Start()
+    [MenuItem("Airplane Tools/Create new airplane")]
+    public static void CreateAirplane()
     {
-    }
+        GameObject current = Selection.activeGameObject;
+        if (current)
+        {
+            var currController = current.AddComponent<IP_AirplaneController>();
+            GameObject COG = new GameObject("COG");
+            COG.transform.SetParent(current.transform);
 
-    // Update is called once per frame
-    void Update()
-    {
+            currController.COG = COG.transform;
+        }
     }
 }
