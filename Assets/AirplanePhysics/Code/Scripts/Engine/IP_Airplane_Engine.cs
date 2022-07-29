@@ -1,3 +1,4 @@
+using Propellers;
 using UnityEngine;
 
 namespace Engine
@@ -6,9 +7,11 @@ namespace Engine
     {
     #region Variables
 
-        public float maxForce = 200f;
+        [Header("Engine Properties")] public float maxForce = 200f;
         public float maxRPM = 2550f;
-        public AnimationCurve powerCurve = AnimationCurve.Linear(0,0,1,1);
+        public AnimationCurve powerCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        [Header("Propellers")] public IP_Airplane_Propeller propeller;
+
     #endregion
 
     #region Builtin Methods
@@ -17,12 +20,21 @@ namespace Engine
 
     #region Custom Methods
 
-        public Vector3 CalculateForceMode(float throttle)
+        public Vector3 CalculateForce(float throttle)
         {
+            //Calculate power
             var finalThrottle = Mathf.Clamp01(throttle);
             finalThrottle = powerCurve.Evaluate(finalThrottle);
+
+            //Calculate RPM
+            if (propeller)
+            {
+                float currentRPM = finalThrottle * maxRPM;
+                propeller.HandlePropeller(currentRPM);
+            }
+            //Create Force
             var finalPower = finalThrottle * maxForce;
-            var finalForce = transform.forward * finalPower;
+            var finalForce = transform.TransformDirection(transform.forward) * finalPower;
 
             return finalForce;
         }
