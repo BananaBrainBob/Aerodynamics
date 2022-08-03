@@ -13,16 +13,20 @@ namespace AirplaneController
     #region Variables
 
         [Header("Base Airplane Properties")]
-        [SerializeField] private IP_Base_Airplane_Input input;
-        [SerializeField] private IP_Airplane_Characteristics characteristics;
-        [SerializeField, Tooltip("Weight is in pounds")] private float airplaneWeight = 800f;
-        [Tooltip("Center Of Gravity")] public Transform COG;
+        [SerializeField]private IP_Base_Airplane_Input input;
+
+        [SerializeField]private IP_Airplane_Characteristics characteristics;
+
+        [SerializeField, Tooltip("Weight is in pounds")]
+        private float airplaneWeight = 800f;
+
+        [Tooltip("Center Of Gravity")]public Transform COG;
 
         [Header("Engines")]
-        [SerializeField] private List<IP_Airplane_Engine> engines;
-        
+        [SerializeField]private List<IP_Airplane_Engine> engines;
+
         [Header("Wheels")]
-        [SerializeField] private List<IP_Airplane_Wheel> wheels;
+        [SerializeField]private List<IP_Airplane_Wheel> wheels;
 
         private bool bEnginesExist => engines is not { Count: > 0 };
 
@@ -46,10 +50,9 @@ namespace AirplaneController
 
                 if (characteristics)
                 {
-                    characteristics.InitCharacteristics(rb,input);
+                    characteristics.InitCharacteristics(rb, input);
                 }
             }
-
 
 
             if (wheels is { Count: > 0 })
@@ -72,12 +75,11 @@ namespace AirplaneController
             HandleSteering();
             HandleBrakes();
             HandleAltitude();
-            
         }
 
         private void HandleCharacteristic()
         {
-            if(characteristics)
+            if (characteristics)
                 characteristics.UpdateCharacteristics();
         }
 
@@ -92,7 +94,7 @@ namespace AirplaneController
         private void HandleSteering()
         {
         }
-        
+
 
         private void HandleEngine()
         {
@@ -101,7 +103,6 @@ namespace AirplaneController
 
             foreach (var engine in engines)
                 rb.AddForce(engine.CalculateForce(input.StickyThrottle));
-            
         }
 
     #endregion

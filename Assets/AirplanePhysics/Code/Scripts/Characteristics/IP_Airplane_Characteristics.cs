@@ -8,20 +8,16 @@ namespace Characteristics
     {
     #region Variables
 
-        [Header("Characteristics Properties")] 
-        public float maxMPH = 110f;
+        [Header("Characteristics Properties")] public float maxMPH = 110f;
         public float rbLerpSpeed = 0.01f;
 
 
-        [Header("Lift Properties")] 
-        public float maxLiftPower = 800;
+        [Header("Lift Properties")] public float maxLiftPower = 800;
         public AnimationCurve liftCurve;
 
-        [Header("Drag Properties")] 
-        public float dragFactor = .01f;
+        [Header("Drag Properties")] public float dragFactor = .01f;
 
-        [Header("Control Properties")] 
-        public float pitchSpeed = 1000f;
+        [Header("Control Properties")] public float pitchSpeed = 1000f;
 
         public float rollSpeed = 1000f;
         public float yawSpeed = 1000f;
@@ -77,11 +73,10 @@ namespace Characteristics
             HandleRoll();
             HandleYaw();
             HandleBanking();
-            
+
             HandleRigidbodyTransform();
         }
 
-  
 
         void CalculateForwardSpeed()
         {
