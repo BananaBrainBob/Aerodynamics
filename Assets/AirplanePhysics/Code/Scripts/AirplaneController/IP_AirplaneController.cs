@@ -100,7 +100,7 @@ namespace AirplaneController
                 return;
 
             foreach (var engine in engines)
-                rb.AddForce(engine.CalculateForce(input.Throttle));
+                rb.AddForce(engine.CalculateForce(input.StickyThrottle));
             
         }
 
