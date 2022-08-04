@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AirplaneInput;
 using Characteristics;
+using ControlSurfaces;
 using Engine;
 using UnityEngine;
 using Wheels;
@@ -27,6 +28,9 @@ namespace AirplaneController
 
         [Header("Wheels")]
         [SerializeField]private List<IP_Airplane_Wheel> wheels;
+
+        [Header("Control Surfaces")]
+        public List<IP_Airplane_Control_Surface> controlSurfaces;
 
         private bool bEnginesExist => engines is not { Count: > 0 };
 
@@ -72,10 +76,13 @@ namespace AirplaneController
                 return;
             HandleEngine();
             HandleCharacteristic();
+            HandleControlSurfaces();
             HandleSteering();
             HandleBrakes();
             HandleAltitude();
         }
+
+
 
         private void HandleCharacteristic()
         {
@@ -83,6 +90,16 @@ namespace AirplaneController
                 characteristics.UpdateCharacteristics();
         }
 
+        private void HandleControlSurfaces()
+        {
+            if (controlSurfaces.Count <= 0) 
+                return;
+            
+            foreach (var controlSurface in controlSurfaces)
+                controlSurface.HandleControlSurface(input);
+            
+        }
+        
         private void HandleAltitude()
         {
         }

@@ -34,7 +34,7 @@ namespace Engine
             }
             //Create Force
             var finalPower = finalThrottle * maxForce;
-            var finalForce = transform.TransformDirection(transform.forward) * finalPower;
+            var finalForce = transform.forward * finalPower;
 
             return finalForce;
         }
